@@ -1,7 +1,7 @@
 /**
  * TypeScript version of Axios mock for unoit testing with [Jest](https://facebook.github.io/jest/).
  * This file is based on https://gist.github.com/tux4/36006a1859323f779ab0
- * 
+ *
  * @author   knee-cola <nikola.derezic@gmail.com>
  * @license  @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -31,6 +31,7 @@ MockAxios.post = jest.fn(_newReq);
 MockAxios.put = jest.fn(_newReq);
 MockAxios.delete = jest.fn(_newReq);
 MockAxios.create = jest.fn(() => MockAxios);
+MockAxios.all = jest.fn(_newReq);
 
 MockAxios.popPromise = (promise?:SyncPromise) => {
 
@@ -45,7 +46,7 @@ MockAxios.popPromise = (promise?:SyncPromise) => {
         return(req.promise);
       }
     }
-    
+
   } else {
     // take the oldest promise
     let req:AxiosMockQueueItem = _pending_requests.shift();
@@ -72,7 +73,7 @@ MockAxios.popRequest = (request?:AxiosMockQueueItem) => {
 
 /**
  * Removes an item form the queue, based on it's type
- * @param queueItem 
+ * @param queueItem
  */
 const popQueueItem = (queueItem:SyncPromise|AxiosMockQueueItem=null) => {
   // first le't pretend the param is a queue item
@@ -127,6 +128,7 @@ MockAxios.reset = () => {
   MockAxios.post.mockClear();
   MockAxios.put.mockClear();
   MockAxios.delete.mockClear();
+  MockAxios.all.mockClear();
 }
 
 // this is a singletone object

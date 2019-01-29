@@ -1,5 +1,5 @@
 {
-  "name": "jest-mock-axios",
+  "name": "@primarybid/jest-mock-axios",
   "version": "2.1.11",
   "description": "Axios mock for Jest",
   "main": "dist/index.js",
