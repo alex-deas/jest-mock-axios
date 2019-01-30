@@ -7,7 +7,7 @@
  */
 
 import SyncPromise from 'jest-mock-promise';
-import { HttpResponse, AnyFunction, SpyFn, AxiosMockType, AxiosMockQueueItem } from './mock-axios-types';
+import { HttpResponse, AxiosMockType, AxiosMockQueueItem } from './mock-axios-types';
 
 /** a FIFO queue of pending request */
 const _pending_requests:Array<AxiosMockQueueItem> = [];
